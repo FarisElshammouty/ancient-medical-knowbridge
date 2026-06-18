@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ancient Medical KnowBridge — Greek &amp; Arabic Access Techniques before Search Engines</title>
+<meta name="description" content="A digital-humanities prototype exploring how premodern Greek and Arabic scholars organised, structured and retrieved medical knowledge — from manuscript page to navigable interface.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/favicon.svg">
+</head>
+<body>
+
+<!-- ============ icon sprite ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-medallion" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="1.4">
+        <circle cx="24" cy="24" r="21"/>
+        <circle cx="24" cy="24" r="6.5" fill="currentColor" stroke="none"/>
+        <g stroke-width="1.3">
+          <path d="M24 3.5v8M24 36.5v8M3.5 24h8M36.5 24h8"/>
+          <path d="M9.5 9.5l5.6 5.6M32.9 32.9l5.6 5.6M38.5 9.5l-5.6 5.6M15.1 32.9l-5.6 5.6"/>
+        </g>
+        <circle cx="24" cy="24" r="13" stroke-dasharray="2 3"/>
+      </g>
+    </symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="4.5" cy="6" r="1.4" fill="currentColor"/><circle cx="4.5" cy="12" r="1.4" fill="currentColor"/><circle cx="4.5" cy="18" r="1.4" fill="currentColor"/><path d="M9 6h11M9 12h11M9 18h11"/></g></symbol>
+    <symbol id="i-quill" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 3c-7 1-12 6-14 13l3 3c7-2 12-7 13-14z"/><path d="M5 19l5-5"/><path d="M14 9l-3 3"/></g></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><circle cx="5.5" cy="14" r="2.2"/><circle cx="18.5" cy="14" r="2.2"/><circle cx="12" cy="20" r="0"/><path d="M12 6.7v3.3M12 10l-6.5 1.8M12 10l6.5 1.8"/><circle cx="5.5" cy="14" r="0"/><path d="M5.5 16.2v1.3a2 2 0 0 0 2 2h4M18.5 16.2v1.3a2 2 0 0 1-2 2h-4"/></g></symbol>
+    <symbol id="i-table" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><path d="M3.5 9.5h17M3.5 14.5h17M12 4.5v15"/></g></symbol>
+    <symbol id="i-qa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H8l-4 3z"/><path d="M9 9.2a1.6 1.6 0 1 1 2 1.5c-.6.3-.9.6-.9 1.1"/><circle cx="10.1" cy="13.4" r=".2" fill="currentColor" stroke-width=".6"/></g></symbol>
+    <symbol id="i-mortar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11h15M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5v3M8 20.5h8"/><path d="M14 4l4.5 4.5"/><path d="M12.5 6.5l3 3"/></g></symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="5.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/><path d="M8.2 11l7.6-4.4M8.2 13l7.6 4.4"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none" opacity=".18"/><path d="M7.5 12.5l3 3 6-6.5" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4z"/><path d="M20 4.5h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6z"/></g></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 5.5a3 3 0 0 1 0 5.8M17 14.5a5.5 5.5 0 0 1 3.5 4.5"/></g></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></g></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 8.5A2 2 0 0 0 6.7 21h10.6a2 2 0 0 0 1.7-3.5L14 9V3"/><path d="M7.5 15h9"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 7.5-7 9-4-1.5-7-4-7-9V6z"/><path d="M9 12l2 2 4-4.5"/></g></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9.5 14.5l5-5"/><path d="M8 11l-2 2a3.5 3.5 0 0 0 5 5l2-2M16 13l2-2a3.5 3.5 0 0 0-5-5l-2 2"/></g></symbol>
+  </defs>
+</svg>
+
+<!-- ============ top bar ============ -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="medallion"><use href="#i-medallion"/></svg>
+      <span class="name">Ancient Medical KnowBridge</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <span class="menu">
+        <a class="has-menu" href="explore.html">Explore <span class="caret">▾</span></a>
+        <span class="dropdown">
+          <a href="explore.html#qa">Q–A &amp; the catechism<small>the flagship form</small></a>
+          <a href="explore.html#papyri">The five papyri<small>catalogue of sources</small></a>
+          <a href="explore.html#forms">All seven access forms<small>lists, tables, diagrams…</small></a>
+        </span>
+      </span>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="project.html">Project</a>
+    </nav>
+    <span class="spacer"></span>
+    <a class="about-link" href="about.html"><svg><use href="#i-flask"/></svg> About this project</a>
+  </div>
+</header>
+
+<!-- ============ hero ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <!-- left manuscript: Greek -->
+      <div class="ms-thumb">
+        <div class="frame"><div class="surface">
+          <div style="font-family:var(--greek);font-size:11px;line-height:1.85;color:#4a3722;padding:10px 9px;text-align:left">
+            Ἀπὸ δὲ τῶν τεσσαρεσ-<br>καίδεκα ἐτῶν μέχρι τῶν<br>τριῶν ἑβδομάδων ἁρμόσει<br>μαθημάτων ἄσκησις καὶ<br>ἀνάληψις γνησιωτέρα καὶ<br>φιλοσόφων λόγων κατήχησις.
+          </div>
+        </div></div>
+        <div class="cite"><b>Oribasius</b>, Collectiones medicae</div>
+        <div class="chips">
+          <span class="chip"><span class="k">Source</span><span class="v">Coll. medicae</span></span>
+          <span class="chip"><span class="k">Date</span><span class="v">4th c. CE</span></span>
+          <span class="chip"><span class="k">Tradition</span><span class="v">Greek</span></span>
+        </div>
+      </div>
+
+      <!-- center -->
+      <div class="hero-center">
+        <div class="flourish">❧ ⁘ ❧</div>
+        <h1>Ancient Medical KnowBridge</h1>
+        <p class="subtitle">Greek and Arabic Textual &amp; Visual Access Techniques before Search Engines</p>
+        <p class="lede">Exploring how premodern scholars organised, structured and retrieved knowledge.</p>
+        <p class="lede"><strong>From manuscript page to navigable knowledge.</strong></p>
+
+        <div class="bridge-block">
+          <svg viewBox="0 0 560 130" role="img" aria-label="A suspension bridge linking two classical pillars">
+            <g fill="none" stroke="currentColor" stroke-width="1.6">
+              <!-- pillars -->
+              <g stroke-width="2">
+                <rect x="86" y="44" width="26" height="64" rx="2"/>
+                <rect x="448" y="44" width="26" height="64" rx="2"/>
+                <path d="M82 44h34M444 44h34"/>
+                <path d="M90 44v-8h18v8M452 44v-8h18v8"/>
+                <path d="M99 36v-7M461 36v-7"/>
+              </g>
+              <!-- deck -->
+              <path d="M30 108h500" stroke-width="2"/>
+              <!-- main cables -->
+              <path d="M30 78 Q99 18 99 44 Q99 96 280 96 Q461 96 461 44 Q461 18 530 78"/>
+              <!-- suspenders -->
+              <g stroke-width="0.9" opacity="0.75">
+                <path d="M140 89V108M170 84V108M200 90V108M230 94V108M260 95V108M300 95V108M330 94V108M360 90V108M390 84V108M420 89V108"/>
+              </g>
+            </g>
+          </svg>
+          <p class="bridge-caption">Bridging Greek and Arabic<br>medical knowledge traditions</p>
+        </div>
+      </div>
+
+      <!-- right manuscript: Arabic -->
+      <div class="ms-thumb">
+        <div class="frame"><div class="surface">
+          <div style="font-family:var(--arabic);font-size:15px;line-height:2;color:#4a3722;padding:10px 9px;direction:rtl;text-align:right">
+            بِسْمِ اللهِ الرَّحْمٰن<br>الرَّحِيم · كِتَابُ الجَامِع<br>لِمُفْرَدَاتِ الأَدْوِيَة<br>وَالأَغْذِيَة · ذِكْرُ<br>الأَدْوِيَةِ المُفْرَدَة.
+          </div>
+        </div></div>
+        <div class="cite"><b>Ibn al-Bayṭār</b>, Kitāb al-Ǧāmiʿ li-mufradāt al-adwiya</div>
+        <div class="chips">
+          <span class="chip"><span class="k">Source</span><span class="v">Leiden Or. 167</span></span>
+          <span class="chip"><span class="k">Date</span><span class="v">13th c.</span></span>
+          <span class="chip"><span class="k">Tradition</span><span class="v">Arabic</span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ explorer: cards + detail ============ -->
+<section class="explorer">
+  <div class="wrap">
+    <div class="explorer-grid">
+      <div class="cards" id="cards" role="tablist" aria-label="Knowledge access forms"></div>
+      <div id="detail-mount"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ribbon ============ -->
+<div class="wrap">
+  <div class="ribbon">
+    <p><span class="orn">❦</span>The manuscript page becomes a research interface.<span class="orn">❦</span></p>
+  </div>
+</div>
+
+<!-- ============ footer ============ -->
+<footer class="site-foot">
+  <hr class="divider-rule">
+  <div class="wrap">
+    <div class="lead">Pilot interface for collecting and linking Greek and Arabic medical access forms.</div>
+    <div class="foot-tags">
+      <span><svg><use href="#i-shield"/></svg> Evidence-based</span>
+      <span><svg><use href="#i-book"/></svg> Source-grounded</span>
+      <span><svg><use href="#i-link"/></svg> Interoperable</span>
+      <span><svg><use href="#i-people"/></svg> Open &amp; collaborative</span>
+    </div>
+    <div class="right">
+      <b>Pilot digital-humanities prototype</b>
+      Research use only
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

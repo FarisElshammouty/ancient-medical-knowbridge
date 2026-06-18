@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About this project — Ancient Medical KnowBridge</title>
+<meta name="description" content="What Ancient Medical KnowBridge is, and the research behind it: catechistic (question-and-answer) Greek medical papyri from Greco-Roman Egypt, and the bridge to the Arabic masāʾil tradition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/favicon.svg">
+</head>
+<body data-page="about">
+<main class="wrap">
+
+  <section class="page-head">
+    <div class="kicker">About</div>
+    <h1>About this project</h1>
+    <p>A small digital-humanities prototype that reads an ancient manuscript page the way its own scholars did — and turns it into something you can navigate.</p>
+  </section>
+
+  <div class="prose">
+
+    <h2>What this is</h2>
+    <p>Ancient Medical KnowBridge is a pilot interface. It takes a single manuscript page — dense, abbreviated, written for readers who already knew the conventions — and re-presents it as a navigable research interface. The organising idea is simple: long before search engines, premodern scholars already had well-developed ways of storing knowledge so that it could be found again.</p>
+    <p>The site is built around the <a href="explore.html#forms">seven forms</a> in which Greek and Arabic medical writers packaged what they knew: <strong>Lists</strong> (segmenting knowledge into retrievable items), <strong>Headings &amp; Definitions</strong> (labelling terms and fixing their meaning), <strong>Classifications</strong> (sorting things into types and sub-types), <strong>Tables</strong> (arranging data for comparison), <strong>Question–Answer</strong> (encoding knowledge as prompts and responses), <strong>Recipes</strong> (step-by-step procedures), and <strong>Diagrams &amp; Branching schemes</strong> (mapping relations visually). Each of these has a strikingly modern counterpart — a glossary, a taxonomy, a spreadsheet, a flashcard, an algorithm, a flowchart — which is exactly what makes them inviting to read today.</p>
+
+    <div class="card-panel">
+      <p class="muted" style="margin:0 0 10px"><svg style="width:18px;height:18px;color:var(--gold);vertical-align:-3px;margin-right:6px"><use href="#i-list"/></svg> The seven access forms, at a glance</p>
+      <div class="pills">
+        <span class="pill solid">Lists</span>
+        <span class="pill">Headings / Definitions</span>
+        <span class="pill">Classifications</span>
+        <span class="pill">Tables</span>
+        <span class="pill solid">Q–A · the catechism</span>
+        <span class="pill">Recipes</span>
+        <span class="pill">Diagrams / Branching</span>
+      </div>
+    </div>
+
+    <h2>The research behind it</h2>
+    <p>The project is built on a thesis chapter about <strong>catechistic medical papyri</strong> — teaching documents from Greco-Roman Egypt, most of them dating to the second and third centuries CE. A <em>catechism</em>, in this sense, is a text built entirely of questions and their answers. Today the word brings to mind the religious instruction of the Catholic churches, but the technique is older than Christianity and was widely used in secular subjects, medicine among them.</p>
+    <p>The Greek term is <span class="greek">κατήχησις</span> (<em>katēchēsis</em>), from the verb <span class="greek">κατηχέω</span> — <em>to teach by word of mouth, to instruct orally</em>. In the middle Byzantine period it was replaced by <span class="greek">ἐρωταπόκρισις</span> (<em>erōtapokrisis</em>), literally <em>question-and-answer</em>, formed from <span class="greek">ἀπόκρισις</span> (the answer) and the art of putting questions. The physician-writer Oribasius names the technique directly as a way of fixing medical knowledge in the memory:</p>
+
+    <blockquote>
+      <p class="greek">Ἀπὸ δὲ τῶν τεσσαρεσκαίδεκα ἐτῶν μέχρι τῶν τριῶν ἑβδομάδων ἁρμόσει μαθημάτων ἄσκησις καὶ ἀνάληψις γνησιωτέρα καὶ φιλοσόφων λόγων κατήχησις.</p>
+      <p>“From the age of fourteen onward, the practice of lessons is fitting, together with a more genuine taking-in and a catechism of philosophical reasoning.”</p>
+      <span class="src">Oribasius, <em>Collectiones medicae</em></span>
+    </blockquote>
+
+    <p>Why did this format matter? Because it shaped how junior students learned. The catechism reduced a topic to its uncontroversial, foundational facts and drilled them through repetition. A typical set opens by <em>defining</em> the ailment — “What is …?” — then moves to its varieties, its causes, its treatment. The papyri are brief and battered, yet they quote well-known medical authorities, which tells us that even small provincial medical schools, far from Alexandria, taught from the canonical writers of the day.</p>
+    <p>The chapter studies five such papyri, on eye diseases and other grave conditions. Together they show medical teaching spread right across Egypt — from the Faiyum to Oxyrhynchus to the Arsinoïte nome.</p>
+
+    <table class="data">
+      <thead>
+        <tr><th>Papyrus</th><th>Topic</th><th>Provenance</th><th>Date</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>P. Aberd. 11 (= MP³ 2342)</td><td>Pterygium and its surgical treatment</td><td>Faiyum</td><td>2nd century</td></tr>
+        <tr><td>P. Ross.Georg. I 20 (= MP³ 2343)</td><td>Glaucoma, staphyloma, pterygium</td><td>Unknown (likely Faiyum)</td><td>2nd century</td></tr>
+        <tr><td>P. Ct Y-BR (Beinecke)</td><td>Hydrocephalus</td><td>Arsinoïte nome</td><td>Late 2nd–early 3rd c.</td></tr>
+        <tr><td>P. Genav. inv. 111 (= MP³ 2373)</td><td>Surgical instruments</td><td>Unknown</td><td>2nd–3rd c.</td></tr>
+        <tr><td>P. Mil.Vogl. I 15 (= MP³ 2340)</td><td>Elephantiasis, apoplexy, sciatica</td><td>Oxyrhynchus</td><td>Mid 3rd–4th c.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Why a bridge?</h2>
+    <p>The Greek catechism did not end with antiquity. Its question-and-answer shape carried over into the Arabic medical tradition as the <em>masāʾil</em> (“questions”) genre — most famously in Ḥunayn ibn Isḥāq’s <span class="greek"><em>al-Masāʾil fī al-ṭibb</em></span> (“Questions on Medicine”), an introductory textbook that opens, like the Greek catechisms, by asking what medicine itself is. The same instinct to fix knowledge as prompts and responses runs from <span class="greek">ἐρωταπόκρισις</span> straight through to <em>masāʾil</em>.</p>
+    <p>That continuity is what the project calls a <strong>bridge</strong>. Its aim is to set the Greek ways of organising medical knowledge alongside their Arabic heirs, so that a reader can see one tradition answering the other across the centuries. The Arabic material here is purely illustrative — included to show the parallel, never presented as a quotation from a specific manuscript — drawing on named anchors such as Ḥunayn’s <em>al-Masāʾil fī al-ṭibb</em>, Ibn al-Bayṭār’s <em>Kitāb al-Jāmiʿ li-mufradāt al-adwiya</em> (Leiden Or. 167, 13th c.), and the <em>aqrābādhīn</em> (compound-drug) genre.</p>
+
+    <h2>How to read the interface</h2>
+    <p>Start on the <a href="index.html">home page</a>. In the centre you will find the seven access forms laid out as cards. Click any card and a detail panel opens beside it, showing that form with two witnesses set side by side — a <strong>Greek</strong> example drawn from the papyri and an illustrative <strong>Arabic</strong> one — together with its function, a modern analogy, its sources and its date.</p>
+    <p>From there, the <a href="explore.html">Explore</a> page gathers everything in one place: the flagship Question–Answer form and its catechism, a catalogue of the five papyri, and a deeper walk through all seven forms with the real Greek quotations and translations from the chapter.</p>
+
+    <div class="card-panel center">
+      <p style="margin:0 0 12px"><svg style="width:20px;height:20px;color:var(--gold);vertical-align:-4px;margin-right:6px"><use href="#i-qa"/></svg> The flagship form is <strong>Question–Answer</strong> — the catechism itself, the thread that ties the whole project together.</p>
+      <div class="pills" style="justify-content:center">
+        <a class="pill solid" href="index.html">Open the home interface</a>
+        <a class="pill" href="explore.html#qa">Go to Q–A &amp; the catechism</a>
+        <a class="pill" href="explore.html#papyri">See the five papyri</a>
+      </div>
+    </div>
+
+    <hr class="divider-rule">
+
+    <p class="muted center" style="margin-top:18px">A pilot digital-humanities prototype, for research use only. Every Greek quotation, translation and date on this site is drawn from the thesis chapter and its cited sources; the Arabic examples are illustrative of the parallel tradition.</p>
+
+  </div>
+
+</main>
+<script src="partials.js"></script>
+</body>
+</html>
