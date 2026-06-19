@@ -56,6 +56,7 @@
       '<nav class="nav">' + navHtml(active) + "</nav>" +
       '<span class="spacer"></span>' +
       '<a class="about-link" href="about.html"><svg><use href="#i-flask"/></svg> About this project</a>' +
+      '<a class="topbar-btn" href="https://fariselshammouty.github.io/knowbridge/"><svg><use href="#i-medallion"/></svg> KnowBridge</a>' +
       "</div></header>";
   }
 
